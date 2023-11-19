@@ -1,0 +1,20 @@
+services:
+  books:
+    image: books
+    build: backends/books
+    hostname: books
+  authors:
+    image: authors
+    build: backends/authors
+    hostname: authors
+  router:
+    image: router
+    build:
+      context: .
+      dockerfile: router/Dockerfile
+    command: --supergraph /dist/schema/supergraph.graphql --dev
+    ports:
+      - 4000:4000
+    depends_on:
+      - books
+      - authors

@@ -1,0 +1,9 @@
+subgraphs:
+  books:
+    routing_url: http://books:4000
+    schema:
+      file: ../backends/books/src/books.graphql
+  authors:
+    routing_url: http://authors:4000
+    schema:
+      file: ../backends/authors/src/authors.graphql
